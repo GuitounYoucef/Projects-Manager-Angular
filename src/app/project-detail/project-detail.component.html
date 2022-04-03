@@ -1,0 +1,90 @@
+<div class="haed-component">
+  <div class="jumbotron">
+    <button mat-raised-button (click)="navigateToProjects()" class="bg-success text-white"
+      style="height: 45px; margin-bottom: 10px;">
+      <mat-icon>navigate_next</mat-icon>
+      رجــوع
+    </button>
+    <h3>مراحل المشروع</h3>
+    <h5>سنة المشروع : {{PD.projectkey.annee}}</h5>
+    <h5>رقم المشروع : {{PD.projectkey.num}}</h5>
+    <h5>إسم المشروع : {{PD.nomProjet}}</h5>
+    <h5>الغلاف المالي : {{PD.montant}}.00 دينار جزائري</h5>
+  </div>
+</div>
+
+<div class="component">
+
+  <div mat-dialog-actions style="margin: 10px;">
+    <button mat-raised-button (click)="openDialog()" style="height: 45px;">
+      مرحلة جديدة
+      <mat-icon>add_circle</mat-icon>
+    </button>
+  </div>
+  <div class="table">
+
+    <div class="mat-elevation-z8">
+      <table mat-table [dataSource]="dataSource" matSort>
+
+        <ng-container matColumnDef="operationkey.numOpr">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header style="width: 120px;">الترتيب</th>
+          <td mat-cell *matCellDef="let row"> {{row.operationkey.numOpr}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="descriptionOpr">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>إسم المرحلة</th>
+          <td mat-cell *matCellDef="let row"> {{row.descriptionOpr}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="typeOpr">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>نوع العملية</th>
+          <td mat-cell *matCellDef="let row"> {{showTypeOpration(row.typeOpr)}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="montantOpr">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>مبلغ العملية</th>
+          <td mat-cell *matCellDef="let row" style="width:120px;"> {{row.montantOpr}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="ancienMontant">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>الرصيد القديم</th>
+          <td mat-cell *matCellDef="let row" style="width:120px;"> {{row.ancienMontant}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="nouvMontant">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>الرصيد الجديد</th>
+          <td mat-cell *matCellDef="let row" style="width:120px;"> {{row.nouvMontant}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="actions">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header style="width:160px; "></th>
+          <td mat-cell *matCellDef="let row">
+
+            <button mat-icon-button class="bg-success text-white" (click)="editOperation(row)" style="padding: auto;">
+              <mat-icon>edit</mat-icon>
+            </button>
+
+            <button *ngIf="lastOpr(row.operationkey.numOpr)" mat-icon-button class="bg-danger text-white" (click)="deleteOperation(row.operationkey.annee,row.operationkey.num,row.operationkey.numOpr)"
+              style="padding: auto;">
+              <mat-icon>delete</mat-icon>
+            </button>
+
+            <button mat-icon-button class="bg-primary text-white" style="padding: auto;">
+              <mat-icon>print</mat-icon>
+            </button>
+          </td>
+        </ng-container>
+
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+      </table>
+
+      <mat-paginator [pageSizeOptions]="[25, 100]" aria-label="Select page of users"></mat-paginator>
+    </div>
+
+
+
+  </div>
+</div>

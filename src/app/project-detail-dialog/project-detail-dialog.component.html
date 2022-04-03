@@ -1,0 +1,55 @@
+<form [formGroup]="stepForm">
+    <div class="dialog" [dir]="direction">
+        <div class="header">
+            <h1 mat-dialog-title>{{formCaption}}</h1>
+        </div>
+
+        <div mat-dialog-content>
+
+            <mat-form-field class="example-full-width" appearance="outline">
+                <mat-label>تفاصيل المرحلة</mat-label>
+                <textarea formControlName="descriptionOpr" matInput ></textarea>
+              </mat-form-field>
+
+
+            <mat-form-field appearance="outline">
+                <mat-label>نوع العملية</mat-label>
+                <mat-select formControlName="typeOpr" [value]="0">
+                    <mat-option value="0">لاشيء</mat-option>
+                    <mat-option value="1">تمديد</mat-option>
+                    <mat-option value="-1">إستهلاك</mat-option>
+                    
+                </mat-select>
+            </mat-form-field>
+
+
+
+            <mat-form-field appearance="outline" floatLabel="always">
+                <mat-label>الرصيد القديم</mat-label>
+                <span matSuffix>دج&nbsp;</span>
+                <span matPrefix>00.</span>
+                <input matInput type="number" placeholder="0" formControlName="ancienMontant" class="montant" readonly>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" floatLabel="always">
+                <mat-label>مبلغ العملية</mat-label>
+                <span matSuffix>دج&nbsp;</span>
+                <span matPrefix>00.</span>
+                <input matInput type="number" placeholder="0" formControlName="montantOpr" class="montant" (input)="montantOprChange($event)">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" floatLabel="always">
+                <mat-label>الرصيد الجديد</mat-label>
+                <span matSuffix>دج&nbsp;</span>
+                <span matPrefix>00.</span>
+                <input matInput type="number" placeholder="0" formControlName="nouvMontant" class="montant" readonly>
+            </mat-form-field>
+
+        </div>
+        <div mat-dialog-actions>
+            <button mat-raised-button class="bg-success text-white" (click)="stepAction()"
+                style="width: 120px;">{{buttonCaption}}<mat-icon>{{buttonicon}}</mat-icon></button>
+            <button mat-raised-button color="warn" (click)="closeForm()" style="width: 120px;">خـروج<mat-icon>cancel</mat-icon></button>
+        </div>
+    </div>
+</form>

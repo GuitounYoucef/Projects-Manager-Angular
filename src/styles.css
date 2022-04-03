@@ -1,1 +1,27 @@
 /* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; }
+
+@font-face {
+    font-family: CairoFont;
+    src: url(assets/font/Cairo-VariableFont_wght.ttf) format("truetype");
+  }
+
+  @font-face {
+    font-family: CairoRegular;
+    src: url(assets/font/Cairo-Regular.ttf) format("truetype");
+  }
+
+  @font-face {
+    font-family: CairoBold;
+    src: url(assets/font/Cairo-Bold.ttf) format("truetype");
+  }
+
+  @font-face {
+    font-family: CairoBlack;
+    src: url(assets/font/Cairo-Black.ttf) format("truetype");
+  }
+
+
+ 

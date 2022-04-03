@@ -1,0 +1,47 @@
+
+
+.component{
+
+
+
+  width:95%;
+  margin:auto;
+
+}
+table {
+  width: 100%;
+
+
+  font-family: 'CairoBold', sans-serif;
+  font-size: 16px;
+
+}
+td{
+  font-family: 'CairoFont', sans-serif;
+  font-size: 15px;
+}
+
+
+.mat-form-field {
+  font-family: 'CairoBold', sans-serif;
+  font-size: 16px;
+  width: 15%;
+
+  margin-bottom: 0;
+  margin-top:10px;
+}
+ th,.mat-raised-button{
+  background-color:rgb(36, 160, 77);
+  color: white;
+  font-family: 'CairoBold', sans-serif;
+  font-size: 16px;
+
+
+}
+button{
+  margin-left:5px;
+  margin-bottom: 20px;
+}
+
+
+

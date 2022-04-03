@@ -1,0 +1,65 @@
+<form [formGroup]="projectForm">
+    <div class="dialog" [dir]="direction">
+        <div class="header">
+            <h1 mat-dialog-title>إضافة مشروع جديد</h1>
+        </div>
+
+        <div mat-dialog-content>
+
+            <div formGroupName="projectkey">
+                <mat-form-field appearance="outline">
+                    <mat-label>السنة</mat-label>
+                    <mat-select formControlName="annee" disable>
+                        <mat-option value="2020">2020</mat-option>
+                        <mat-option value="2021">2021</mat-option>
+                        <mat-option value="2022">2022</mat-option>
+                        <mat-option value="2023">2023</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+
+
+            <mat-form-field appearance="outline" >
+                <mat-label>إسم المشروع</mat-label>
+                <input formControlName="nomProjet" matInput>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>الباب</mat-label>
+                <mat-select formControlName="numChapitre" type="number" (selectionChange)="OnselectChapitre($event)">
+                    <mat-option *ngFor="let chp of chapitreNameList " [value]="chp.numChapitre">{{chp.numChapitre}} |
+                        {{chp.chapitre}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>الباب الفرعي</mat-label>
+                <mat-select formControlName="numSousChapitre">
+                    <mat-option *ngFor="let chp of SchapitreList " [value]="chp.numSousChapitre">{{chp.numSousChapitre}}
+                        | {{chp.sousChapitre}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" style="padding:5px;">
+                <mat-label>المادة</mat-label>
+                <mat-select formControlName="numArticle">
+                    <mat-option *ngFor="let art of articleList " [value]="art.numArticle">{{art.numArticle}} |
+                        {{art.nomArticle}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" floatLabel="always">
+                <mat-label>المبغ المخصص</mat-label>
+                
+                <span matSuffix>دج&nbsp;</span>
+                <span matPrefix>00.</span>
+                <input matInput type="number"  placeholder="0" formControlName="montant" class="montant">
+              </mat-form-field>
+
+        </div>
+        <div mat-dialog-actions>
+            <button mat-raised-button class="bg-success text-white" (click)="projectAction()" style="width: 120px;">{{buttonCaption}}<mat-icon>{{buttonicon}}</mat-icon></button>
+            <button mat-raised-button color="warn" (click)="closeForm()" style="width: 120px;">خـروج<mat-icon>cancel</mat-icon></button>
+        </div>
+    </div>
+</form>
