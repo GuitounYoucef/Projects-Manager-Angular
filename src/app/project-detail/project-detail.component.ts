@@ -120,6 +120,11 @@ export class ProjectDetailComponent implements OnInit {
     );
 
   }
+  printOperation(annee:number,num:number,numopr:number){
+    
+    this.projectdetailS.printReportOperation(annee,num,numopr);
+
+  }
 
 
   private getProjectOperationsList(){

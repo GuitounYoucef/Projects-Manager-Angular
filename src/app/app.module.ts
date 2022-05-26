@@ -34,6 +34,7 @@ import {MatTableModule} from '@angular/material/table';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatSortModule} from '@angular/material/sort';
 import { ProjectDetailDialogComponent } from './project-detail-dialog/project-detail-dialog.component';
+import { AuthComponent } from './auth/auth.component';
 
 
 const routes: Routes = [
@@ -53,7 +54,8 @@ const routes: Routes = [
     ChapitresPipe,
     HeaderComponent,
     ProjectdialogComponent,
-    ProjectDetailDialogComponent
+    ProjectDetailDialogComponent,
+    AuthComponent
   ],
   imports: [
     BrowserModule,

@@ -69,7 +69,8 @@
               <mat-icon>delete</mat-icon>
             </button>
 
-            <button mat-icon-button class="bg-primary text-white" style="padding: auto;">
+            <button mat-icon-button class="bg-primary text-white" style="padding: auto;"
+            (click)="printOperation(row.operationkey.annee,row.operationkey.num,row.operationkey.numOpr)">
               <mat-icon>print</mat-icon>
             </button>
           </td>

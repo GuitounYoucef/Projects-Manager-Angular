@@ -1,5 +1,6 @@
 import { Direction } from '@angular/cdk/bidi';
 import { Component, EventEmitter, Output } from '@angular/core';
+import { AuthService } from './services/auth.service';
 
 @Component({
   selector: 'app-root',
@@ -11,8 +12,15 @@ export class AppComponent {
   title = 'Projects-Manager';
   sideBarOpen = true;
   direction: Direction = "rtl";
-  
 
+
+  constructor(private authService:AuthService){
+     
+  }
+  
+  isAth(){
+      return this.authService.isAuth;
+  }
   toggleSidebar() {
     this.toggleSidebarForMe.emit();
   }

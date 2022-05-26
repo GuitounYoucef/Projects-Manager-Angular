@@ -1,4 +1,4 @@
-
+<div *ngIf="isAth()">
 <mat-sidenav-container [dir]="direction">
   <mat-sidenav [opened]="sideBarOpen" mode="side">
     <app-nav-bar ></app-nav-bar>
@@ -9,4 +9,8 @@
   </mat-sidenav-content>
 
 </mat-sidenav-container>
+</div>
+<div *ngIf="!isAth()">
+  <app-auth></app-auth>
+</div>
 
