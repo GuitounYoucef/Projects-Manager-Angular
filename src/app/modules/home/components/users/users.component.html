@@ -1,0 +1,73 @@
+<div class="component">
+
+
+
+    <div mat-dialog-actions>
+        <button mat-raised-button (click)="openDialog()" style="height: 45px;" class="bg-success text-white">
+            مستخدم جديد
+            <mat-icon>add_circle</mat-icon>
+        </button>
+    </div>
+
+
+
+
+
+    <div class="table">
+
+        <div class="mat-elevation-z8">
+            <table mat-table [dataSource]="dataSource" matSort>
+
+
+
+
+
+                <ng-container matColumnDef="userName">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header>إسم المستخدم</th>
+                    <td mat-cell *matCellDef="let row" style="width:120px;"> {{row.userName}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="role">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header>المهام</th>
+                    <td mat-cell *matCellDef="let row" style="width:120px;"> {{row.role}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="accountStatus">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header>حالة الحساب</th>
+                    <td mat-cell *matCellDef="let row" style="width:120px;"> {{row.accountStatus ? 'مفعل' : 'موقف'}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="actions">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header style="width:120px; "></th>
+                    <td mat-cell *matCellDef="let row">
+
+                        <button mat-icon-button class="bg-success text-white" (click)="editUser(row)"
+                            style="padding: auto;">
+                            <mat-icon>edit</mat-icon>
+                        </button>
+
+
+                    </td>
+                </ng-container>
+
+
+
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;" [ngStyle]="{'background-color':row.accountStatus ? '#b5e7a0' : '#f9ccac'}"></tr>
+
+            </table>
+
+            <mat-paginator [pageSizeOptions]="[25, 100]" aria-label="Select page of users"></mat-paginator>
+        </div>
+
+
+
+
+
+
+    </div>
+
+
+
+
+</div>

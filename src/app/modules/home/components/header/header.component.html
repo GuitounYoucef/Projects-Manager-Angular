@@ -1,0 +1,30 @@
+<mat-toolbar>
+    <mat-toolbar-row class="justify-content-between">
+      <button mat-icon-button (click)="toggleSidebar()">
+        <mat-icon>menu</mat-icon>
+      </button>    
+    
+     <div style="display:flex; padding-left: 10px;">
+      <h2 style="padding-left: 10px; margin-top: 10px;">{{username}}</h2>
+
+      <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+        <img src="https://www.w3schools.com/howto/img_avatar.png" alt="Avatar" class="avatar">
+      </button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item (click)="logout()">
+          <mat-icon>logout</mat-icon>
+          <span>تسجيل الخروج</span>
+        </button>
+
+      </mat-menu>
+      
+      
+     </div>
+
+        
+ 
+      
+    
+    </mat-toolbar-row>
+  </mat-toolbar>
+

@@ -19,7 +19,7 @@ export class AppComponent {
   }
   
   isAth(){
-      return this.authService.isAuth;
+      return this.authService.isAuthenticated();
   }
   toggleSidebar() {
     this.toggleSidebarForMe.emit();

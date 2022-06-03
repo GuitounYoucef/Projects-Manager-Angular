@@ -2,22 +2,19 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule, Routes } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
-import { ProjectsComponent } from './projects/projects.component';
-import { ProjectDetailComponent } from './project-detail/project-detail.component';
-import { HomeComponent } from './home/home.component';
-import { NavBarComponent } from './nav-bar/nav-bar.component';
-import { HeaderComponent } from './header/header.component';
-import { ProjectdialogComponent } from './projectdialog/projectdialog.component';
-
-
+import { ProjectsComponent } from './modules/home/components/projects/projects.component';
+import { ProjectDetailComponent } from './modules/home/components/project-detail/project-detail.component';
+import { HomeComponent } from './modules/home/components/home/home.component';
+import { NavBarComponent } from './modules/home/components/nav-bar/nav-bar.component';
+import { HeaderComponent } from './modules/home/components/header/header.component';
+import { ProjectdialogComponent } from './modules/home/components/projectdialog/projectdialog.component';
 
 import { MatIconModule } from '@angular/material/icon';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { ChapitresPipe } from './pipes/chapitres.pipe';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSidenavModule } from '@angular/material/sidenav';
@@ -33,16 +30,16 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatTableModule} from '@angular/material/table';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatSortModule} from '@angular/material/sort';
-import { ProjectDetailDialogComponent } from './project-detail-dialog/project-detail-dialog.component';
-import { AuthComponent } from './auth/auth.component';
+import { ProjectDetailDialogComponent } from './modules/home/components/project-detail-dialog/project-detail-dialog.component';
+import { AuthComponent } from './components/auth/auth.component';
+import { NgxWebstorageModule } from 'ngx-webstorage';
+import {MatCardModule} from '@angular/material/card';
+import { AuthGuard } from './auth.guard';
+import { UsersComponent } from './modules/home/components/users/users.component';
+import { HttpClientInterceptor } from './Httpinterceptor/HttpInterceptor';
+import { UsersDialogComponent } from './modules/home/components/users-dialog/users-dialog.component';
 
 
-const routes: Routes = [
-  { path: 'Home', component: HomeComponent },
-  { path: 'Projects', component: ProjectsComponent },
-  { path: 'ProjectDetail/:annee/:num', component: ProjectDetailComponent }, 
-  { path: '**', redirectTo: '/Home', pathMatch: 'full' }
-];
 
 @NgModule({
   declarations: [
@@ -51,17 +48,18 @@ const routes: Routes = [
     ProjectDetailComponent,
     HomeComponent,
     NavBarComponent,
-    ChapitresPipe,
     HeaderComponent,
     ProjectdialogComponent,
     ProjectDetailDialogComponent,
-    AuthComponent
+    AuthComponent,
+    UsersComponent,
+    UsersDialogComponent
   ],
   imports: [
     BrowserModule,
     MatIconModule,
     AppRoutingModule,
-    RouterModule.forRoot(routes),
+    
     BrowserAnimationsModule,
     NgbModule,
     FormsModule,
@@ -80,10 +78,12 @@ const routes: Routes = [
     MatButtonModule,
     MatTableModule,
     MatPaginatorModule,
-    MatSortModule
+    MatSortModule,
+    MatCardModule,
+    NgxWebstorageModule.forRoot(),
         
   ],
-  providers: [],
+  providers: [{provide: HTTP_INTERCEPTORS, useClass: HttpClientInterceptor, multi: true}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -20,12 +20,12 @@ export class ProjectsService {
 
   //private baseUrl="http://localhost:8081/projectsmanager";
 
-  private ProjectsbaseURL=this.baseUrl+"/projects";
+  private ProjectsbaseURL=this.baseUrl+"/projectsmanager/projects";
 
-  private ChapitresbaseURL=this.baseUrl+"/distchapitres";
-  private SousChapitresbaseURL=this.baseUrl+"/chapitres";
+  private ChapitresbaseURL=this.baseUrl+"/projectsmanager/distchapitres";
+  private SousChapitresbaseURL=this.baseUrl+"/projectsmanager/chapitres";
 
-  private ArticlesbaseURL=this.baseUrl+"/articles";
+  private ArticlesbaseURL=this.baseUrl+"/projectsmanager/articles";
 
 
   constructor(private httpClient:HttpClient) {} 

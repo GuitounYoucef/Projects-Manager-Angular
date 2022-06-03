@@ -13,6 +13,8 @@ export class ProjectdetailService {
   private ProjectOperationsbaseURL = window["cfgApiBaseUrl"];
   response:any;
 
+  path="projectsmanager/projectoperations";
+
   
 
   constructor(private httpClient:HttpClient) {} 
@@ -22,19 +24,19 @@ export class ProjectdetailService {
   }
 
   createOperationsProject(opr:OperationProject): Observable<object>{
-    return this.httpClient.post(`${this.ProjectOperationsbaseURL+"/projectoperations"}`,opr);
+    return this.httpClient.post(`${this.ProjectOperationsbaseURL+this.path}`,opr);
   }
 
   getOperation(annee:number,num:number,numopr:number): Observable<OperationProject>{
-    return this.httpClient.get<OperationProject>(`${this.ProjectOperationsbaseURL+"/projectoperations"}/${annee}/${num}/${numopr}`);
+    return this.httpClient.get<OperationProject>(`${this.ProjectOperationsbaseURL+this.path}/${annee}/${num}/${numopr}`);
   }  
 
   deleteOperation(annee:number,num:number,numopr:number): Observable<any>{
-    return this.httpClient.delete(`${this.ProjectOperationsbaseURL+"/projectoperations"}/${annee}/${num}/${numopr}`);
+    return this.httpClient.delete(`${this.ProjectOperationsbaseURL+this.path}/${annee}/${num}/${numopr}`);
   } 
 
   UpdateOperation(opr:OperationProject,annee:number,num:number,numopr:number): Observable<object>{
-    return this.httpClient.put(`${this.ProjectOperationsbaseURL+"/projectoperations"}/${annee}/${num}/${numopr}`,opr);
+    return this.httpClient.put(`${this.ProjectOperationsbaseURL+this.path}/${annee}/${num}/${numopr}`,opr);
   }    
 
   printReportOperation(annee:number,num:number,numopr:number){

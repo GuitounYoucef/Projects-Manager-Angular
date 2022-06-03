@@ -1,0 +1,48 @@
+<form [formGroup]="usersForm">
+    <div class="dialog" [dir]="direction">
+        <div class="header">
+            <h1 mat-dialog-title>{{formCaption}}</h1>
+        </div>
+
+        <div mat-dialog-content>
+
+            <mat-form-field appearance="outline" >
+                <mat-label>إسم المستخدم</mat-label>
+                <input formControlName="userName" matInput>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" >
+                <mat-label>كلمة المرور</mat-label>
+                <input matInput  [type]="hide ? 'password' : 'text'" formControlName="password" required>
+                <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                
+            </mat-form-field>         
+
+            <mat-form-field appearance="outline">
+                <mat-label>المهام</mat-label>
+                <mat-select formControlName="role">
+                    <mat-option value="ADMIN">مسير</mat-option>
+                    <mat-option value="USER">مستخدم</mat-option>
+                </mat-select>
+            </mat-form-field>            
+
+            <mat-form-field appearance="outline">
+                <mat-label>حالة الحساب</mat-label>
+                <mat-select formControlName="accountStatus" >
+                    <mat-option [value]="false" >موقف</mat-option>
+                    <mat-option [value]="true" >مفعل</mat-option>
+                </mat-select>
+            </mat-form-field>   
+
+
+
+
+
+        </div>
+        <div mat-dialog-actions>
+            <button mat-raised-button class="bg-success text-white" (click)="userAction()"
+                style="width: 120px;">{{buttonCaption}}<mat-icon>{{buttonicon}}</mat-icon></button>
+            <button mat-raised-button color="warn" (click)="closeForm()" style="width: 120px;">خـروج<mat-icon>cancel</mat-icon></button>
+        </div>
+    </div>
+</form>

@@ -1,16 +1,1 @@
-<div *ngIf="isAth()">
-<mat-sidenav-container [dir]="direction">
-  <mat-sidenav [opened]="sideBarOpen" mode="side">
-    <app-nav-bar ></app-nav-bar>
-  </mat-sidenav>  
-  <mat-sidenav-content>
-    <app-header (toggleSidebarForMe)="sideBarToggler()"></app-header>
-    <router-outlet></router-outlet>
-  </mat-sidenav-content>
-
-</mat-sidenav-container>
-</div>
-<div *ngIf="!isAth()">
-  <app-auth></app-auth>
-</div>
-
+   <router-outlet></router-outlet>
