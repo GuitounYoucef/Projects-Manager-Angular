@@ -1,8 +1,8 @@
-<div class="bod">
+<div class="bod" [dir]="direction">
     <form class="login" [formGroup]="loginform" >
-        <input type="text" placeholder="Username" formControlName="username">
-        <input type="password" placeholder="Password" formControlName="password">
-        <button (click)="onSubmit()">Login</button>
+        <input type="text" placeholder="إسم المستخدم" formControlName="username">
+        <input type="password" placeholder="كلمة المرور" formControlName="password">
+        <button (click)="onSubmit()">دخول</button>
     </form>
 
 

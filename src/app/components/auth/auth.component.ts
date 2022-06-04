@@ -1,3 +1,4 @@
+import { Direction } from '@angular/cdk/bidi';
 import { Component, OnChanges, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -9,6 +10,7 @@ import { AuthService } from '../../services/auth.service';
   styleUrls: ['./auth.component.css']
 })
 export class AuthComponent implements OnInit,OnChanges {
+  direction: Direction = "rtl";
 
   loginform: FormGroup = new FormGroup(
     {
@@ -30,9 +32,13 @@ export class AuthComponent implements OnInit,OnChanges {
 
 
   onSubmit(){
+    if(this.loginform.valid)
+    {
     this.authservice.login(this.loginform.value).subscribe(data=>{
       console.log(data);
     });
+  }
+  else alert("خطأ في حجز البيانات");
 
   }
 }

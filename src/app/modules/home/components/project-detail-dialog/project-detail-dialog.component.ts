@@ -63,12 +63,16 @@ export class ProjectDetailDialogComponent implements OnInit {
   }
 
   stepAction() {
+    if(this.stepForm.valid)
+    {
     if (this.editData.annee) {
       this.createStep();
     }
     else {
       this.updateStep();
     }
+  }
+    else alert("خطأ في حجز البيانات");
   }
 
   createStep() {

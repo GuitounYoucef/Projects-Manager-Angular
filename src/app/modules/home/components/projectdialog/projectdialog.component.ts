@@ -73,12 +73,16 @@ export class ProjectdialogComponent implements OnInit, AfterViewInit {
     
   }
   projectAction(){
+    if (this.projectForm)
+    {
     if(!this.editData){
       this.saveProject();
     }
     else{
        this.updateProject();
     }
+  }
+    else alert("خطأ في حجز البيانات");
   }
   saveProject(){
     console.log(this.projectForm.value);
