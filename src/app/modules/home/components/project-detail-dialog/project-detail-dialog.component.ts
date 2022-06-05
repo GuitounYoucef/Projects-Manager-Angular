@@ -3,7 +3,8 @@ import { Component, Inject, OnInit, AfterViewInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, FormArray } from '@angular/forms';
 
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { ProjectdetailService } from '../../../../services/projectdetail.service';
+import { ProjectdetailService } from 'src/app/services/projectdetail.service';
+
 
 @Component({
   selector: 'app-project-detail-dialog',

@@ -1,8 +1,8 @@
 import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import {ModalDismissReasons, NgbModal} from '@ng-bootstrap/ng-bootstrap';
-import { ProjectdetailService } from '../../../../services/projectdetail.service';
-import { Project } from '../../../../models/Project';
-import { OperationProject } from '../../../../models/OperationProject';
+import { ProjectdetailService } from 'src/app/services/projectdetail.service';
+import { Project } from 'src/app/models/Project';
+import { OperationProject } from 'src/app/models/OperationProject';
 import { take } from 'rxjs';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ProjectsService } from '../../../../services/projects.service';

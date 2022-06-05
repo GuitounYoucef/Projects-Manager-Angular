@@ -1,7 +1,7 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { LocalStorageService } from 'ngx-webstorage';
-import { AuthService } from '../../../../services/auth.service';
+import { AuthService } from 'src/app/services/auth.service';
 
 
 @Component({

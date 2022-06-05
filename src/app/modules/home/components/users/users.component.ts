@@ -4,8 +4,9 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { UsersService } from '../../../../services/users.service';
+import { UsersService } from 'src/app/services/users.service';
 import { UsersDialogComponent } from '../users-dialog/users-dialog.component';
+
 
 @Component({
   selector: 'app-users',

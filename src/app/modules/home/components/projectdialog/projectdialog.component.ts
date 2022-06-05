@@ -1,11 +1,14 @@
 import { Direction } from '@angular/cdk/bidi';
 import { Component, Inject, OnInit, AfterViewInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, FormArray } from '@angular/forms';
-import { Article } from '../../../../models/Article';
-import { Chapitre } from '../../../../models/Chapitre';
-import { ListChapitre } from '../../../../models/ListChapitre';
-import { ProjectsService } from '../../../../services/projects.service';
+
+
+
 import {MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import { Chapitre } from 'src/app/models/Chapitre';
+import { Article } from 'src/app/models/Article';
+import { ListChapitre } from 'src/app/models/ListChapitre';
+import { ProjectsService } from 'src/app/services/projects.service';
 
 @Component({
   selector: 'app-projectdialog',

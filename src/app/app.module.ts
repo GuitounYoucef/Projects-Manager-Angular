@@ -11,7 +11,7 @@ import { ProjectDetailComponent } from './modules/home/components/project-detail
 import { HomeComponent } from './modules/home/components/home/home.component';
 import { NavBarComponent } from './modules/home/components/nav-bar/nav-bar.component';
 import { HeaderComponent } from './modules/home/components/header/header.component';
-import { ProjectdialogComponent } from './modules/home/components/projectdialog/projectdialog.component';
+
 
 import { MatIconModule } from '@angular/material/icon';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -38,6 +38,9 @@ import { AuthGuard } from './auth.guard';
 import { UsersComponent } from './modules/home/components/users/users.component';
 import { HttpClientInterceptor } from './Httpinterceptor/HttpInterceptor';
 import { UsersDialogComponent } from './modules/home/components/users-dialog/users-dialog.component';
+import { ProjectdialogComponent } from './modules/home/components/projectdialog/projectdialog.component';
+
+
 
 
 
@@ -53,7 +56,8 @@ import { UsersDialogComponent } from './modules/home/components/users-dialog/use
     ProjectDetailDialogComponent,
     AuthComponent,
     UsersComponent,
-    UsersDialogComponent
+    UsersDialogComponent,
+    
   ],
   imports: [
     BrowserModule,

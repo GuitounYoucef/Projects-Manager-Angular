@@ -6,18 +6,22 @@ import {MatTableDataSource} from '@angular/material/table';
 import { Router } from '@angular/router';
 import {ModalDismissReasons, NgbModal} from '@ng-bootstrap/ng-bootstrap'
 import {MatDialog, MAT_DIALOG_DATA} from '@angular/material/dialog';
-
-
-
-
-import { Project } from '../../../../models/Project';
-import { Chapitre } from '../../../../models/Chapitre';
-import { Article } from '../../../../models/Article';
-import { ListChapitre } from '../../../../models/ListChapitre';
-
-import { ProjectsService} from '../../../../services/projects.service';
-import { ProjectdetailService } from '../../../../services/projectdetail.service';
+import { Project } from 'src/app/models/Project';
+import { ListChapitre } from 'src/app/models/ListChapitre';
+import { Chapitre } from 'src/app/models/Chapitre';
+import { Article } from 'src/app/models/Article';
 import { ProjectdialogComponent } from '../projectdialog/projectdialog.component';
+import { ProjectsService } from 'src/app/services/projects.service';
+import { ProjectdetailService } from 'src/app/services/projectdetail.service';
+
+
+
+
+
+
+
+
+
 
 
 @Component({
